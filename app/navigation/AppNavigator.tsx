@@ -9,8 +9,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useColorScheme} from 'react-native';
 
 import {Routes} from './Navigation.routes.ts';
-import CitiesListScreen from '../features/weather/CitiesListScreen.tsx';
-import CityDetailsScreen from '../features/weather/CityDetailsScreen.tsx';
+import CitiesListScreen from '../features/cities/CitiesList/CitiesListScreen.tsx';
+import CityDetailsScreen from '../features/cities/CityDetails/CityDetailsScreen.tsx';
 
 const Stack = createNativeStackNavigator();
 
