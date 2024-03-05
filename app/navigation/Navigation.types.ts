@@ -1,5 +1,6 @@
-import {Routes} from './Navigation.routes.ts';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
+import {Routes} from './Navigation.routes.ts';
 
 export type WeatherStackParamList = {
   [Routes.CitiesList]: undefined;

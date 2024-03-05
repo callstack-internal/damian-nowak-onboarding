@@ -1,8 +1,10 @@
-import {Button, Text, View} from 'react-native';
 import React from 'react';
-import {styles} from '../../theme/styles.tsx';
+
 import {useNavigation} from '@react-navigation/native';
+import {Button, Text, View} from 'react-native';
+
 import {Routes, WeatherStackNavigationProps} from '../../navigation';
+import {styles} from '../../theme/styles.tsx';
 
 export default function CitiesListScreen() {
   const {navigate} =

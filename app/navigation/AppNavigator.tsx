@@ -1,14 +1,16 @@
-import {useColorScheme} from 'react-native';
+import React from 'react';
+
 import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useColorScheme} from 'react-native';
+
+import {Routes} from './Navigation.routes.ts';
 import CitiesListScreen from '../features/weather/CitiesListScreen.tsx';
 import CityDetailsScreen from '../features/weather/CityDetailsScreen.tsx';
-import {Routes} from './Navigation.routes.ts';
 
 const Stack = createNativeStackNavigator();
 

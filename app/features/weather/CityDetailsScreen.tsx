@@ -1,8 +1,10 @@
-import {Text, View} from 'react-native';
 import React from 'react';
-import {styles} from '../../theme/styles.tsx';
-import {Routes, WeatherStackNavigationProps} from '../../navigation';
+
 import {useRoute} from '@react-navigation/native';
+import {Text, View} from 'react-native';
+
+import {Routes, WeatherStackNavigationProps} from '../../navigation';
+import {styles} from '../../theme/styles.tsx';
 
 export default function CityDetailsScreen() {
   const route =
