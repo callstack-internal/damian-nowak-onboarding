@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {PropsWithChildren} from 'react';
 
 import NetInfo from '@react-native-community/netinfo';
 import {
@@ -15,11 +15,7 @@ onlineManager.setEventListener(setOnline => {
   });
 });
 
-type ApiQueryProviderProps = {
-  children: ReactNode;
-};
-
-export function ApiQueryProvider({children}: ApiQueryProviderProps) {
+export function ApiQueryProvider({children}: PropsWithChildren) {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
