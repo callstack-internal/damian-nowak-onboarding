@@ -9,12 +9,12 @@ import {styles} from '../../../theme/styles.tsx';
 export default function CityDetailsScreen() {
   const route =
     useRoute<WeatherStackNavigationProps<Routes.CityDetails>['route']>();
-  const {name} = route.params;
+  const {weather} = route.params;
 
   return (
     <View style={styles.screenContent}>
       <Text>City Details Screen</Text>
-      <Text>{name} weather</Text>
+      <Text>{weather.cityName} weather</Text>
     </View>
   );
 }
