@@ -28,8 +28,8 @@ export const defaultColors = {
   error: palette.angry500,
   errorBackground: palette.angry100,
 
-  accent: palette.accent500,
-  onAccent: palette.neutral100,
+  primary: palette.accent500,
+  onPrimary: palette.neutral100,
 };
 
 export const darkColors = {

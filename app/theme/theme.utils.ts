@@ -1,6 +1,8 @@
 import {DefaultTheme as NavigationDefaultTheme} from '@react-navigation/native';
 import {Theme as NavigationTheme} from '@react-navigation/native/lib/typescript/src/types';
 import {ColorSchemeName} from 'react-native';
+import {MD3Theme} from 'react-native-paper';
+import {MD3LightTheme} from 'react-native-paper';
 
 import {darkColors, defaultColors} from './colors.ts';
 import {spacing} from './spacing.ts';
@@ -38,3 +40,18 @@ export const getNavigationTheme = (
   },
   dark: colorSchemaName === 'dark',
 });
+
+// TODO: Dark theme support
+export const getPaperTheme = (colorSchemaName: ColorSchemeName): MD3Theme => {
+  const theme = getTheme(colorSchemaName);
+
+  return {
+    ...MD3LightTheme,
+    colors: {
+      ...MD3LightTheme.colors,
+      primary: theme.colors.primary,
+      onPrimary: theme.colors.onPrimary,
+      background: theme.colors.backgroundPrimary,
+    },
+  };
+};
