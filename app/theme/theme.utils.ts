@@ -1,6 +1,6 @@
 import {DefaultTheme as NavigationDefaultTheme} from '@react-navigation/native';
 import {Theme as NavigationTheme} from '@react-navigation/native/lib/typescript/src/types';
-import {ColorSchemeName} from 'react-native';
+import {ColorSchemeName, useColorScheme} from 'react-native';
 import {MD3Theme} from 'react-native-paper';
 import {MD3LightTheme} from 'react-native-paper';
 
@@ -20,6 +20,10 @@ const darkTheme = {
   ...sharedTheme,
   colors: darkColors,
 } as const;
+
+export function useTheme() {
+  return getTheme(useColorScheme());
+}
 
 export const getTheme = (colorSchemaName: ColorSchemeName) => {
   switch (colorSchemaName) {

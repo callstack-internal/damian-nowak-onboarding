@@ -1,8 +1,11 @@
 import React from 'react';
 
-import {Button, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Chip, List} from 'react-native-paper';
 
 import {CityWeather} from '../../../../models/CityWeather.ts';
+import {useTheme} from '../../../../theme';
+import {getWeatherIconUrl} from '../../../../utils/getWeatherIconUrl.ts';
 
 interface CityWeatherItemProps {
   weather: CityWeather;
@@ -14,17 +17,40 @@ export const CityWeatherItem = ({weather, onPress}: CityWeatherItemProps) => {
     onPress(weather);
   };
 
+  const theme = useTheme();
+
   return (
-    <View style={styles.content}>
-      <Button title={weather.cityName} onPress={onPressItem} />
-    </View>
+    <List.Item
+      title={weather.cityName}
+      description={weather.weatherDescription}
+      onPress={onPressItem}
+      left={() => (
+        <List.Image
+          source={{
+            uri: getWeatherIconUrl(weather.weatherIconCode),
+          }}
+        />
+      )}
+      right={() => (
+        <View style={WeatherItemStyles.right}>
+          <Chip
+            style={{
+              backgroundColor: theme.colors.primary,
+            }}
+            selectedColor={theme.colors.onPrimary}>
+            {weather.temp} °F
+          </Chip>
+          <List.Icon icon="chevron-right" color={theme.colors.textSecondary} />
+        </View>
+      )}
+    />
   );
 };
 
-const styles = StyleSheet.create({
-  content: {
-    flex: 1,
+const WeatherItemStyles = StyleSheet.create({
+  right: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    columnGap: 10,
   },
 });

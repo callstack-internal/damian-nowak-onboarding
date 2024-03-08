@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
 import {FlatList, ListRenderItemInfo} from 'react-native';
+import {Divider} from 'react-native-paper';
 
 import {
   CityWeatherItem,
@@ -54,6 +55,7 @@ export default function CitiesListScreen() {
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       ListEmptyComponent={renderEmptyComponent}
+      ItemSeparatorComponent={Divider}
     />
   );
 }
