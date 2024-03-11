@@ -5,7 +5,7 @@ import {FlatList, ListRenderItemInfo} from 'react-native';
 import {Divider} from 'react-native-paper';
 
 import {
-  CityWeatherItem,
+  CityWeatherHeader,
   EmptyCitiesList,
   ErrorLoadingCitiesList,
   LoadingCitiesList,
@@ -34,7 +34,7 @@ export default function CitiesListScreen() {
 
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<CityWeather>) => {
-      return <CityWeatherItem weather={item} onPress={onPressItem} />;
+      return <CityWeatherHeader weather={item} onPress={onPressItem} />;
     },
     [onPressItem],
   );

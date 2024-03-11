@@ -3,18 +3,21 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Chip, List} from 'react-native-paper';
 
-import {CityWeather} from '../../../../models/CityWeather.ts';
-import {useTheme} from '../../../../theme';
-import {getWeatherIconUrl} from '../../../../utils/getWeatherIconUrl.ts';
+import {CityWeather} from '../../../models/CityWeather.ts';
+import {useTheme} from '../../../theme';
+import {getWeatherIconUrl} from '../../../utils/getWeatherIconUrl.ts';
 
-interface CityWeatherItemProps {
+interface CityWeatherHeaderProps {
   weather: CityWeather;
-  onPress: (item: CityWeather) => void;
+  onPress?: (item: CityWeather) => void;
 }
 
-export const CityWeatherItem = ({weather, onPress}: CityWeatherItemProps) => {
+export const CityWeatherHeader = ({
+  weather,
+  onPress,
+}: CityWeatherHeaderProps) => {
   const onPressItem = () => {
-    onPress(weather);
+    onPress && onPress(weather);
   };
 
   const theme = useTheme();
@@ -40,7 +43,12 @@ export const CityWeatherItem = ({weather, onPress}: CityWeatherItemProps) => {
             selectedColor={theme.colors.onPrimary}>
             {weather.temp} °F
           </Chip>
-          <List.Icon icon="chevron-right" color={theme.colors.textSecondary} />
+          {onPress && (
+            <List.Icon
+              icon="chevron-right"
+              color={theme.colors.textSecondary}
+            />
+          )}
         </View>
       )}
     />
