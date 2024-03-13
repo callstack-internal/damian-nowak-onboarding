@@ -10,11 +10,13 @@ import {getWeatherIconUrl} from '../../../utils/getWeatherIconUrl.ts';
 interface CityWeatherHeaderProps {
   weather: CityWeather;
   onPress?: (item: CityWeather) => void;
+  testID?: string;
 }
 
 export const CityWeatherHeader = ({
   weather,
   onPress,
+  testID,
 }: CityWeatherHeaderProps) => {
   const onPressItem = () => {
     onPress && onPress(weather);
@@ -51,6 +53,7 @@ export const CityWeatherHeader = ({
           )}
         </View>
       )}
+      testID={testID}
     />
   );
 };

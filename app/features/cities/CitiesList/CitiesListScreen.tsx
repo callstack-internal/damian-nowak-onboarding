@@ -34,7 +34,13 @@ export default function CitiesListScreen() {
 
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<CityWeather>) => {
-      return <CityWeatherHeader weather={item} onPress={onPressItem} />;
+      return (
+        <CityWeatherHeader
+          weather={item}
+          onPress={onPressItem}
+          testID={`city-weather-item-${item.id}`}
+        />
+      );
     },
     [onPressItem],
   );
@@ -56,6 +62,7 @@ export default function CitiesListScreen() {
       keyExtractor={keyExtractor}
       ListEmptyComponent={renderEmptyComponent}
       ItemSeparatorComponent={Divider}
+      testID="cities-list"
     />
   );
 }
