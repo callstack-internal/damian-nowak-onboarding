@@ -9,7 +9,7 @@ jest.mock('@react-native-community/netinfo', () =>
 );
 
 jest.mock('react-native-config', () => ({
-  OPEN_WEATHER_API_BASE_URL: 'https://api.openweathermap.org',
-  OPEN_WEATHER_API_ICON_URL: 'https://openweathermap.org/img/w',
-  OPEN_WEATHER_API_KEY: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+  API_URL: 'https://api.openweathermap.org',
+  API_ICON_URL: 'https://openweathermap.org/img/w',
+  API_KEY: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
 }));
