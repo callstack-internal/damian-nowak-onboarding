@@ -34,13 +34,7 @@ export default function CitiesListScreen() {
 
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<CityWeather>) => {
-      return (
-        <CityWeatherHeader
-          weather={item}
-          onPress={onPressItem}
-          testID={`city-weather-item-${item.id}`}
-        />
-      );
+      return <CityWeatherHeader weather={item} onPress={onPressItem} />;
     },
     [onPressItem],
   );

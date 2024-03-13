@@ -10,13 +10,11 @@ import {getWeatherIconUrl} from '../../../utils/getWeatherIconUrl.ts';
 interface CityWeatherHeaderProps {
   weather: CityWeather;
   onPress?: (item: CityWeather) => void;
-  testID?: string;
 }
 
 export const CityWeatherHeader = ({
   weather,
   onPress,
-  testID,
 }: CityWeatherHeaderProps) => {
   const onPressItem = () => {
     onPress && onPress(weather);
@@ -25,36 +23,37 @@ export const CityWeatherHeader = ({
   const theme = useTheme();
 
   return (
-    <List.Item
-      title={weather.cityName}
-      description={weather.weatherDescription}
-      onPress={onPressItem}
-      left={() => (
-        <List.Image
-          source={{
-            uri: getWeatherIconUrl(weather.weatherIconCode),
-          }}
-        />
-      )}
-      right={() => (
-        <View style={WeatherItemStyles.right}>
-          <Chip
-            style={{
-              backgroundColor: theme.colors.primary,
+    <View testID={`city-weather-item-${weather.id}`}>
+      <List.Item
+        title={weather.cityName}
+        description={weather.weatherDescription}
+        onPress={onPressItem}
+        left={() => (
+          <List.Image
+            source={{
+              uri: getWeatherIconUrl(weather.weatherIconCode),
             }}
-            selectedColor={theme.colors.onPrimary}>
-            {weather.temp} °F
-          </Chip>
-          {onPress && (
-            <List.Icon
-              icon="chevron-right"
-              color={theme.colors.textSecondary}
-            />
-          )}
-        </View>
-      )}
-      testID={testID}
-    />
+          />
+        )}
+        right={() => (
+          <View style={WeatherItemStyles.right}>
+            <Chip
+              style={{
+                backgroundColor: theme.colors.primary,
+              }}
+              selectedColor={theme.colors.onPrimary}>
+              {weather.temp} °F
+            </Chip>
+            {onPress && (
+              <List.Icon
+                icon="chevron-right"
+                color={theme.colors.textSecondary}
+              />
+            )}
+          </View>
+        )}
+      />
+    </View>
   );
 };
 
