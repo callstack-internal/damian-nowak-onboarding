@@ -1,0 +1,8 @@
+appId: com.weatherapp
+---
+- launchApp:
+    clearState: true
+
+- runFlow: flows/cities-list-screen.yaml
+
+- runFlow: flows/city-details-screen.yaml

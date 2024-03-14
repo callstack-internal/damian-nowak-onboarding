@@ -22,7 +22,7 @@ export function mapCityWeatherToWeatherDetailItemProps(
     },
     {
       id: 'cloud-cover',
-      name: 'Cloud cover',
+      name: 'Cloud Cover',
       value: `${cityWeather.cloudCover}%`,
     },
   ];

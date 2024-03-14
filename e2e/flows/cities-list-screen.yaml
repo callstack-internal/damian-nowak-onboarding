@@ -1,0 +1,22 @@
+appId: com.weatherapp
+---
+- assertVisible: 'Weather'
+
+- assertVisible:
+    id: 'city-weather-item-703448'
+
+- scrollUntilVisible:
+    element:
+      id: 'city-weather-item-5128581'
+    direction: down
+
+- assertVisible:
+    id: 'city-weather-item-5815135'
+
+- scrollUntilVisible:
+    element:
+      id: 'city-weather-item-703448'
+    direction: up
+
+- tapOn:
+    id: 'city-weather-item-703448'

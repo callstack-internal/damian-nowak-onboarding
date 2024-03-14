@@ -1,0 +1,13 @@
+appId: com.weatherapp
+---
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn: 'Weather'
+
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - back
