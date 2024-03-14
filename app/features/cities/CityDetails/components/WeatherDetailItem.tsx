@@ -16,18 +16,18 @@ export default function WeatherDetailItem({
   value,
 }: WeatherDetailItemProps) {
   const theme = useTheme();
+
+  const renderSuffix = () => (
+    <Text
+      style={{color: theme.colors.textSecondary}}
+      testID={`weather-detail-${id}-value`}>
+      {value}
+    </Text>
+  );
+
   return (
     <View>
-      <List.Item
-        title={name}
-        right={() => (
-          <Text
-            style={{color: theme.colors.textSecondary}}
-            testID={`weather-detail-${id}-value`}>
-            {value}
-          </Text>
-        )}
-      />
+      <List.Item title={name} right={renderSuffix} />
       <Divider />
     </View>
   );

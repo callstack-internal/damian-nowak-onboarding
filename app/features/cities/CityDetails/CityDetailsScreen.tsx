@@ -9,7 +9,7 @@ import WeatherDetailItem, {
   WeatherDetailItemProps,
 } from './components/WeatherDetailItem.tsx';
 import {Routes, WeatherStackNavigationProps} from '../../../navigation';
-import {CityWeatherHeader} from '../components/CityWeatherHeader.tsx';
+import {CityWeatherHeader} from '../components/CityWeatherHeader';
 
 export default function CityDetailsScreen() {
   const route =
