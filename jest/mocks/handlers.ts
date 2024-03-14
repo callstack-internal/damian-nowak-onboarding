@@ -21,7 +21,7 @@ export const setupGetWeatherForCitiesEmptyDataHandler = () => {
   server.use(
     http.get(`${API_URL}${ApiRoutes.weatherGroup}`, () => {
       return HttpResponse.json(
-        {},
+        {cnt: 0, list: []},
         {
           status: 200,
         },

@@ -1,6 +1,6 @@
 export interface GetWeatherForCitiesResponse {
   cnt: number;
-  list: [CityWeatherResponse];
+  list: CityWeatherResponse[];
 }
 
 export interface CityWeatherResponse {

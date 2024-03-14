@@ -3,7 +3,7 @@ import {GetWeatherForCitiesResponse} from '../../../app/services/api/api.types.t
 
 export const GET_WEATHER_FOR_CITIES_RESPONSE_DATA: GetWeatherForCitiesResponse =
   {
-    cnt: 1,
+    cnt: 2,
     list: [
       {
         coord: {
@@ -43,6 +43,45 @@ export const GET_WEATHER_FOR_CITIES_RESPONSE_DATA: GetWeatherForCitiesResponse =
         dt: 1710328148,
         id: 703448,
         name: 'Kyiv',
+      },
+      {
+        coord: {
+          lon: 34.8003,
+          lat: 50.9216,
+        },
+        sys: {
+          country: 'UA',
+          timezone: 7200,
+          sunrise: 1710388593,
+          sunset: 1710431007,
+        },
+        weather: [
+          {
+            id: 804,
+            main: 'Clouds',
+            description: 'overcast clouds',
+            icon: '04d',
+          },
+        ],
+        main: {
+          temp: 34.29,
+          feels_like: 27.09,
+          temp_min: 34.29,
+          temp_max: 34.29,
+          pressure: 1021,
+          humidity: 72,
+        },
+        visibility: 10000,
+        wind: {
+          speed: 8.97,
+          deg: 107,
+        },
+        clouds: {
+          all: 100,
+        },
+        dt: 1710414548,
+        id: 692194,
+        name: 'Sumy',
       },
     ],
   };
