@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
-import {FlatList, ListRenderItemInfo} from 'react-native';
-import {Divider} from 'react-native-paper';
+import {FlatList, ListRenderItemInfo, View} from 'react-native';
+import {Text, Divider} from 'react-native-paper';
 
 import {
   CityWeatherHeader,
@@ -10,6 +10,7 @@ import {
   ErrorLoadingCitiesList,
   LoadingCitiesList,
 } from './components';
+import {CurrentLocationCity} from './components/CurrentLocationCity.tsx';
 import {cityIds} from './data/cityIds.ts';
 import {useWeatherForCitiesQuery} from '../../../hooks/queries';
 import {CityWeather} from '../../../models/CityWeather.ts';
@@ -49,8 +50,19 @@ export default function CitiesListScreen() {
     return <EmptyCitiesList onRefresh={refetch} />;
   };
 
+  const renderHeaderComponent = () => {
+    return (
+      <View>
+        <Text variant="headlineMedium">Current location</Text>
+        <CurrentLocationCity />
+        <Text variant="headlineMedium">Other cities</Text>
+      </View>
+    );
+  };
+
   return (
     <FlatList
+      ListHeaderComponent={renderHeaderComponent}
       data={data}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
