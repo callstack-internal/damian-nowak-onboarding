@@ -10,7 +10,11 @@ export const EmptyCitiesList = ({onRefresh}: EmptyCitiesListProps) => {
   return (
     <View style={styles.content}>
       <Text>Nothing to show</Text>
-      <Button title={'Refresh'} onPress={onRefresh} />
+      <Button
+        title={'Refresh'}
+        onPress={onRefresh}
+        testID={'refresh-cities-button'}
+      />
     </View>
   );
 };

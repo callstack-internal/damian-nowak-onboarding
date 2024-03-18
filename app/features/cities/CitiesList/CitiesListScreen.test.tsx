@@ -78,11 +78,11 @@ describe('Screen: CitiesListScreen', () => {
     });
 
     it('should refresh data after pressing refresh button', async () => {
-      const {findByText, findAllByTestId} = render(<CitiesListScreen />, {
+      const {findByTestId, findAllByTestId} = render(<CitiesListScreen />, {
         wrapper: ProvidersWrapper,
       });
 
-      const refreshButton = await findByText('Refresh');
+      const refreshButton = await findByTestId('refresh-cities-button');
       expect(refreshButton).toBeOnTheScreen();
 
       setupGetWeatherForCitiesSuccessHandler();
@@ -116,11 +116,11 @@ describe('Screen: CitiesListScreen', () => {
     });
 
     it('should refresh data after pressing refresh button', async () => {
-      const {findByText, findAllByTestId} = render(<CitiesListScreen />, {
+      const {findByTestId, findAllByTestId} = render(<CitiesListScreen />, {
         wrapper: ProvidersWrapper,
       });
 
-      const refreshButton = await findByText('Refresh');
+      const refreshButton = await findByTestId('refresh-cities-button');
       expect(refreshButton).toBeOnTheScreen();
 
       setupGetWeatherForCitiesSuccessHandler();
