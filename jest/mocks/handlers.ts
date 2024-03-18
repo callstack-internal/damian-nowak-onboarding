@@ -1,7 +1,10 @@
 import {http, HttpResponse} from 'msw';
 import Config from 'react-native-config';
 
-import {GET_WEATHER_FOR_CITIES_RESPONSE_DATA} from './data';
+import {
+  CITY_WEATHER_RESPONSE_DATA_1,
+  GET_WEATHER_FOR_CITIES_RESPONSE_DATA,
+} from './data';
 import {server} from './server.ts';
 import {ApiRoutes} from '../../app/services/api/apiRoutes.ts';
 
@@ -34,6 +37,16 @@ export const setupGetWeatherForCitiesFailedHandler = () => {
   server.use(
     http.get(`${API_URL}${ApiRoutes.weatherGroup}`, () => {
       return HttpResponse.error();
+    }),
+  );
+};
+
+export const setupGetCityWeatherForLocationSuccessHandler = () => {
+  server.use(
+    http.get(`${API_URL}${ApiRoutes.weather}`, () => {
+      return HttpResponse.json(CITY_WEATHER_RESPONSE_DATA_1, {
+        status: 200,
+      });
     }),
   );
 };

@@ -7,7 +7,7 @@ import {
   RESULTS,
 } from 'react-native-permissions';
 
-import locationModule from './locationModule.ts';
+import LocationModule from './locationModule.ts';
 import {Location} from '../../types/location.ts';
 
 const locationPermission = Platform.select({
@@ -32,5 +32,6 @@ export const getCurrentLocation = async (): Promise<Location | null> => {
   ) {
     return null;
   }
-  return locationModule.getCurrentLocation();
+
+  return await LocationModule.getCurrentLocation();
 };

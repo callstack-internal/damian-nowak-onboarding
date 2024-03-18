@@ -17,3 +17,9 @@ jest.mock('react-native-config', () => ({
   API_ICON_URL: 'https://openweathermap.org/img/w',
   API_KEY: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
 }));
+
+jest.mock('../app/services/location/locationModule', () => ({
+  getCurrentLocation: jest
+    .fn()
+    .mockReturnValue({latitude: 1.1, longitude: 2.2}),
+}));

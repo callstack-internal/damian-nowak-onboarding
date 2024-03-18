@@ -84,7 +84,11 @@ export const CurrentLocationCity = ({onPress}: CurrentLocationCityProps) => {
   return (
     <>
       {cityWeather && (
-        <CityWeatherHeader weather={cityWeather} onPress={onPress} />
+        <CityWeatherHeader
+          weather={cityWeather}
+          onPress={onPress}
+          testID={'current-location-city-weather'}
+        />
       )}
       <View style={styles.button}>
         <Button title={buttonTitle} onPress={onRefresh} />

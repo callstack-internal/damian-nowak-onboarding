@@ -10,6 +10,7 @@ import {
 import CitiesListScreen from './CitiesListScreen.tsx';
 import {GET_WEATHER_FOR_CITIES_RESPONSE_DATA} from '../../../../jest/mocks/data';
 import {
+  setupGetCityWeatherForLocationSuccessHandler,
   setupGetWeatherForCitiesEmptyDataHandler,
   setupGetWeatherForCitiesFailedHandler,
   setupGetWeatherForCitiesSuccessHandler,
@@ -17,6 +18,7 @@ import {
 import {ProvidersWrapper} from '../../../../jest/utils.tsx';
 
 describe('Screen: CitiesListScreen', () => {
+  beforeEach(() => setupGetCityWeatherForLocationSuccessHandler());
   describe('success', () => {
     beforeEach(() => setupGetWeatherForCitiesSuccessHandler());
     it('should display cities list', async () => {
