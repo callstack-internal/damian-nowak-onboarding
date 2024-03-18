@@ -54,7 +54,7 @@ export default function CitiesListScreen() {
     return (
       <View>
         <Text variant="headlineMedium">Current location</Text>
-        <CurrentLocationCity />
+        <CurrentLocationCity onPress={onPressItem} />
         <Text variant="headlineMedium">Other cities</Text>
       </View>
     );
