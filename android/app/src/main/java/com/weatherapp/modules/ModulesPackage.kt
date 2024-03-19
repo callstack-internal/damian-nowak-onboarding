@@ -1,4 +1,4 @@
-package com.weatherapp
+package com.weatherapp.modules
 
 import android.view.View
 import com.facebook.react.ReactPackage
@@ -6,8 +6,9 @@ import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ReactShadowNode
 import com.facebook.react.uimanager.ViewManager
+import com.weatherapp.modules.location.LocationModule
 
-class MyAppPackage : ReactPackage {
+class ModulesPackage : ReactPackage {
 
     override fun createViewManagers(
         reactContext: ReactApplicationContext
