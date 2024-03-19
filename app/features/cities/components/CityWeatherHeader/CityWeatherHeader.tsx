@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 
+import {View} from 'react-native';
 import {List} from 'react-native-paper';
 
 import {CityWeatherHeaderPrefix} from './CityWeatherHeaderPrefix.tsx';
@@ -35,12 +36,14 @@ export const CityWeatherHeader = ({
   );
 
   return (
-    <List.Item
-      title={weather.cityName}
-      description={weather.weatherDescription}
-      onPress={onPressItem}
-      left={renderCityWeatherHeaderPrefix}
-      right={renderCityWeatherHeaderSuffix}
-    />
+    <View testID={`city-weather-item-${weather.id}`}>
+      <List.Item
+        title={weather.cityName}
+        description={weather.weatherDescription}
+        onPress={onPressItem}
+        left={renderCityWeatherHeaderPrefix}
+        right={renderCityWeatherHeaderSuffix}
+      />
+    </View>
   );
 };

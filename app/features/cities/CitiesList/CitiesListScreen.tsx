@@ -56,6 +56,7 @@ export default function CitiesListScreen() {
       keyExtractor={keyExtractor}
       ListEmptyComponent={renderEmptyComponent}
       ItemSeparatorComponent={Divider}
+      testID="cities-list"
     />
   );
 }

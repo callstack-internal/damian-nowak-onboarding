@@ -1,0 +1,11 @@
+appId: com.weatherapp
+---
+- assertVisible:
+    id: 'city-weather-item-703448'
+
+- assertVisible: 'Humidity.*%'
+- assertVisible: 'Pressure.*hPa'
+- assertVisible: 'Wind Speed.*mph'
+- assertVisible: 'Cloud Cover.*%'
+
+- runFlow: ../subflows/go-back.yaml
