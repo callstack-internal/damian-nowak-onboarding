@@ -1,7 +1,7 @@
 export type CityWeather = {
   id: number;
   cityName: string;
-  weatherIcon: string;
+  weatherIconCode: string;
   weatherDescription: string;
   temp: number;
   humidity: number;

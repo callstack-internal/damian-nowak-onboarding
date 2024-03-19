@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
-import {Button, ScrollView, Text, View} from 'react-native';
+import {FlatList, ListRenderItemInfo} from 'react-native';
+import {Divider} from 'react-native-paper';
 
+import {
+  CityWeatherHeader,
+  EmptyCitiesList,
+  ErrorLoadingCitiesList,
+  LoadingCitiesList,
+} from './components';
 import {cityIds} from './data/cityIds.ts';
 import {useWeatherForCitiesQuery} from '../../../hooks/queries';
+import {CityWeather} from '../../../models/CityWeather.ts';
 import {Routes, WeatherStackNavigationProps} from '../../../navigation';
-import {styles} from '../../../theme/styles.tsx';
 
 export default function CitiesListScreen() {
   const {navigate} =
@@ -14,23 +21,41 @@ export default function CitiesListScreen() {
       WeatherStackNavigationProps<Routes.CitiesList>['navigation']
     >();
 
-  const {data} = useWeatherForCitiesQuery(cityIds);
+  const {data, isError, isLoading, refetch} = useWeatherForCitiesQuery(cityIds);
+
+  const keyExtractor = (item: CityWeather) => item.id.toString();
+
+  const onPressItem = useCallback(
+    (item: CityWeather) => {
+      navigate(Routes.CityDetails, {weather: item});
+    },
+    [navigate],
+  );
+
+  const renderItem = useCallback(
+    ({item}: ListRenderItemInfo<CityWeather>) => {
+      return <CityWeatherHeader weather={item} onPress={onPressItem} />;
+    },
+    [onPressItem],
+  );
+
+  const renderEmptyComponent = () => {
+    if (isError) {
+      return <ErrorLoadingCitiesList onRefresh={refetch} />;
+    }
+    if (isLoading) {
+      return <LoadingCitiesList />;
+    }
+    return <EmptyCitiesList onRefresh={refetch} />;
+  };
 
   return (
-    <View style={styles.screenContent}>
-      <Text>Cities List Screen</Text>
-      <ScrollView>
-        {data &&
-          data.map(cityWeather => (
-            <Button
-              key={cityWeather.id}
-              title={cityWeather.cityName}
-              onPress={() =>
-                navigate(Routes.CityDetails, {name: cityWeather.cityName})
-              }
-            />
-          ))}
-      </ScrollView>
-    </View>
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      ListEmptyComponent={renderEmptyComponent}
+      ItemSeparatorComponent={Divider}
+    />
   );
 }
