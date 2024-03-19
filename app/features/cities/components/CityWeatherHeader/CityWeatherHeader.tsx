@@ -10,11 +10,13 @@ import {CityWeather} from '../../../../models/CityWeather.ts';
 interface CityWeatherHeaderProps {
   weather: CityWeather;
   onPress?: (item: CityWeather) => void;
+  testID?: string;
 }
 
 export const CityWeatherHeader = ({
   weather,
   onPress,
+  testID,
 }: CityWeatherHeaderProps) => {
   const onPressItem = () => {
     onPress && onPress(weather);
@@ -36,7 +38,7 @@ export const CityWeatherHeader = ({
   );
 
   return (
-    <View testID={`city-weather-item-${weather.id}`}>
+    <View testID={testID || `city-weather-item-${weather.id}`}>
       <List.Item
         title={weather.cityName}
         description={weather.weatherDescription}

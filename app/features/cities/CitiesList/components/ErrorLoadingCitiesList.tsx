@@ -15,7 +15,11 @@ export const ErrorLoadingCitiesList = ({
         Error: something went wrong. Please check your internet connection and
         try again.
       </Text>
-      <Button title={'Refresh'} onPress={onRefresh} />
+      <Button
+        title={'Refresh'}
+        onPress={onRefresh}
+        testID={'refresh-cities-button'}
+      />
     </View>
   );
 };
