@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 import {List} from 'react-native-paper';
 
@@ -19,15 +19,19 @@ export const CityWeatherHeader = ({
     onPress && onPress(weather);
   };
 
-  const renderCityWeatherHeaderPrefix = () => (
-    <CityWeatherHeaderPrefix weatherIconCode={weather.weatherIconCode} />
+  const renderCityWeatherHeaderPrefix = useCallback(
+    () => <CityWeatherHeaderPrefix weatherIconCode={weather.weatherIconCode} />,
+    [weather.weatherIconCode],
   );
 
-  const renderCityWeatherHeaderSuffix = () => (
-    <CityWeatherHeaderSuffix
-      temperature={weather.temp}
-      displayNavigation={onPress !== undefined}
-    />
+  const renderCityWeatherHeaderSuffix = useCallback(
+    () => (
+      <CityWeatherHeaderSuffix
+        temperature={weather.temp}
+        displayNavigation={onPress !== undefined}
+      />
+    ),
+    [onPress, weather.temp],
   );
 
   return (
