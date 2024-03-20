@@ -29,6 +29,10 @@ jobs:
           node-version: '21'
           cache: yarn
           cache-dependency-path: yarn.lock
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - run: npm install -g yarn
       - run: yarn install
       - name: Create .env file

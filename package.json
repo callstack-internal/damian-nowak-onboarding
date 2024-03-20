@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "android:build:release": "cd android && ./gradlew assembleRelease",
     "ios": "react-native run-ios",
-    "ios:build:debug": "cd ios && xcodebuild build -scheme 'WeatherApp' -configuration Debug -workspace 'WeatherApp.xcworkspace' -destination 'generic/platform=iOS Simulator' CONFIGURATION_BUILD_DIR=$PWD/build",
+    "ios:build:debug": "cd ios && pod install && xcodebuild build -scheme 'WeatherApp' -configuration Debug -workspace 'WeatherApp.xcworkspace' -destination 'generic/platform=iOS Simulator' CONFIGURATION_BUILD_DIR=$PWD/build",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
