@@ -11,7 +11,6 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  server.resetHandlers();
   testQueryClient.clear();
 });
 
