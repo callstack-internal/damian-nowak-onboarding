@@ -1,6 +1,7 @@
 name: E2E Tests
-run-name:  ${{ github.actor }} is building the app and running E2E tests
 on: pull_request
+run-name: ${{ github.actor }} is building the app and running E2E tests
+
 jobs:
   e2e-tests-android:
     runs-on: ubuntu-latest
