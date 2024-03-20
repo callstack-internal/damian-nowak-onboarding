@@ -38,9 +38,9 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo API_URL=${{ env.API_URL }} >> .env
+          echo API_URL=${{ secrets.API_URL }} >> .env
           echo API_KEY=${{ secrets.API_KEY }} >> .env
-          echo API_ICON_URL=${{ env.API_ICON_URL }} >> .env
+          echo API_ICON_URL=${{ secrets.API_ICON_URL }} >> .env
       - run: yarn android:build:release
       - uses: mobile-dev-inc/action-maestro-cloud@v1.8.1
         with:
