@@ -82,7 +82,12 @@ jobs:
           echo API_KEY=${{ secrets.API_KEY }} >> .env
           echo API_ICON_URL=${{ secrets.API_ICON_URL }} >> .env
       - run: yarn ios:build:debug
+
+      - name: Find ios .app file location
+        id: find_ios_app_file
+        run: |
+          echo "IOS_APP_FILE=$(find $HOME/Library/Developer/Xcode/DerivedData -type d -name "WeatherApp.app")" >> "$GITHUB_ENV"
       - uses: mobile-dev-inc/action-maestro-cloud@v1.8.1
         with:
           api-key: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
-          app-file: ios/build/WeatherApp.app
+          app-file: ${{ env.IOS_APP_FILE }}
