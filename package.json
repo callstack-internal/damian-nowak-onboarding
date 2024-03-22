@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:build:release": "cd android && ./gradlew assembleRelease",
     "ios": "react-native run-ios",
+    "ios:build:release": "cd ios && xcodebuild -scheme 'WeatherApp' -workspace 'WeatherApp.xcworkspace' -configuration 'Release' -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator'",
+    "pod-install": "cd ios && bundle exec pod install",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "e2e": "maestro test ./e2e/main.yaml"
+    "e2e": "maestro test .maestro/main.yaml"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^11.3.1",
