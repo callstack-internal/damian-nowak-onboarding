@@ -81,7 +81,7 @@ jobs:
           echo API_URL=${{ secrets.API_URL }} >> .env
           echo API_KEY=${{ secrets.API_KEY }} >> .env
           echo API_ICON_URL=${{ secrets.API_ICON_URL }} >> .env
-      - run: yarn ios:build:debug
+      - run: yarn ios:build:release
 
       - name: Find ios .app file location
         id: find_ios_app_file
